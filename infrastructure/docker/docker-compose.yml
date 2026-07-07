@@ -1,0 +1,58 @@
+# ============================================
+# OSEC — Docker Compose (Local Development)
+# ============================================
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/Dockerfile.backend
+    container_name: osec-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../../.env
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=mongodb://mongodb:27017/osec
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongodb
+      - redis
+    volumes:
+      - ../../backend:/app
+      - /app/node_modules
+    networks:
+      - osec-network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7
+    container_name: osec-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - osec-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: osec-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - osec-network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  osec-network:
+    driver: bridge
