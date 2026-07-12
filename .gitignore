@@ -23,6 +23,7 @@ mobile-app/android/local.properties
 mobile-app/android/key.properties
 mobile-app/android/build/
 mobile-app/android/.idea/
+mobile-app/android/**/GeneratedPluginRegistrant.java
 *.apk
 *.aab
 *.keystore
@@ -35,6 +36,10 @@ mobile-app/ios/build/
 mobile-app/ios/DerivedData/
 mobile-app/ios/Flutter/Flutter.framework
 mobile-app/ios/Flutter/Flutter.podspec
+mobile-app/ios/Flutter/Generated.xcconfig
+mobile-app/ios/Flutter/flutter_export_environment.sh
+mobile-app/ios/Flutter/ephemeral/
+mobile-app/ios/Runner/GeneratedPluginRegistrant.*
 *.xcworkspace
 *.xcuserdata
 

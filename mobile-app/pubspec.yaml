@@ -1,5 +1,5 @@
 name: osec_mobile
-description: OSEC (Online School of E-Commerce) — Mobile platform for secure sale and delivery of e-commerce video training courses.
+description: OSEC - Online School of E-Commerce - Secure e-commerce video training platform
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,40 +10,48 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # State Management
-  provider: ^6.1.1
+  # UI & Core
+  provider: ^6.0.5
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
 
   # Networking
   dio: ^5.4.0
+  connectivity_plus: ^5.0.1
 
-  # Local Storage
+  # Storage
   shared_preferences: ^2.2.2
-  sqflite: ^2.3.0
   flutter_secure_storage: ^9.0.0
+  sqflite: ^2.3.2
+  path_provider: ^2.1.1
 
-  # Video Playback
-  video_player: ^2.8.2
+  # Video & Media
+  video_player: ^2.8.0
   chewie: ^1.7.4
+  screen_protector: ^1.5.2
 
-  # Localization
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.19.0
+  # Notifications
+  firebase_messaging: ^14.7.6
+  flutter_local_notifications: ^16.1.0
+
+  # Authentication
+  sms_autofill: ^2.3.0
+
+  # Navigation
+  go_router: ^13.0.0
 
   # Utilities
-  path_provider: ^2.1.1
-  connectivity_plus: ^5.0.2
-  cached_network_image: ^3.3.0
-  shimmer: ^3.0.0
-  cached_video_player: ^0.0.3
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  get_it: ^7.6.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
   build_runner: ^2.4.7
-  mockito: ^5.4.4
-  sqflite_common_ffi: ^2.3.1
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -51,6 +59,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/videos/
 
   fonts:
     - family: Montserrat
@@ -65,5 +74,10 @@ flutter:
         - asset: assets/fonts/Inter-Regular.ttf
         - asset: assets/fonts/Inter-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Inter-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/app_icon.png"
