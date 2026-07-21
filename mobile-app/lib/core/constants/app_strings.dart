@@ -73,6 +73,39 @@ class AppStrings {
     // Success
     required this.successSignedIn,
     required this.successAccountVerified,
+    // Home — header & search
+    required this.homeGreeting,
+    required this.homeSubtitle,
+    required this.homeSearchHint,
+    required this.homeSearchClear,
+    // Home — sections
+    required this.homeWelcomeVideoSection,
+    required this.homeCoursesSection,
+    required this.homeContinueLearning,
+    // Badges & course meta
+    required this.badgeFree,
+    required this.badgePremium,
+    required this.badgeLocked,
+    required this.courseLessonsCount,
+    required this.courseProgressComplete,
+    required this.courseRatingReviews,
+    // Filters
+    required this.filterAll,
+    required this.filterFree,
+    required this.filterPremium,
+    required this.filterInProgress,
+    // Bottom navigation
+    required this.navHome,
+    required this.navMyCourses,
+    required this.navTools,
+    required this.navProfile,
+    // Empty / error / misc states
+    required this.homeEmptyTitle,
+    required this.homeEmptySubtitle,
+    required this.homeErrorTitle,
+    required this.homeRetry,
+    required this.homeComingSoon,
+    required this.homeComingSoonSubtitle,
   });
 
   // Onboarding
@@ -155,6 +188,54 @@ class AppStrings {
   final String successSignedIn;
   final String successAccountVerified;
 
+  // Home — header & search
+  final String homeGreeting;
+  final String homeSubtitle;
+  final String homeSearchHint;
+  final String homeSearchClear;
+
+  // Home — sections
+  final String homeWelcomeVideoSection;
+  final String homeCoursesSection;
+  final String homeContinueLearning;
+
+  // Badges & course meta
+  final String badgeFree;
+  final String badgePremium;
+  final String badgeLocked;
+
+  /// Lessons-count template containing an `{n}` placeholder, e.g. `12 lessons`.
+  /// Modèle du nombre de leçons contenant un espace réservé `{n}`.
+  final String courseLessonsCount;
+
+  /// Progress template containing a `{p}` placeholder, e.g. `40% complete`.
+  /// Modèle de progression contenant un espace réservé `{p}`.
+  final String courseProgressComplete;
+
+  /// Reviews-count template containing an `{n}` placeholder.
+  /// Modèle du nombre d'avis contenant un espace réservé `{n}`.
+  final String courseRatingReviews;
+
+  // Filters
+  final String filterAll;
+  final String filterFree;
+  final String filterPremium;
+  final String filterInProgress;
+
+  // Bottom navigation
+  final String navHome;
+  final String navMyCourses;
+  final String navTools;
+  final String navProfile;
+
+  // Empty / error / misc states
+  final String homeEmptyTitle;
+  final String homeEmptySubtitle;
+  final String homeErrorTitle;
+  final String homeRetry;
+  final String homeComingSoon;
+  final String homeComingSoonSubtitle;
+
   static const AppStrings en = AppStrings._(
     // Onboarding
     onboardingSkip: 'Skip',
@@ -228,6 +309,39 @@ class AppStrings {
     // Success
     successSignedIn: 'Signed in successfully.',
     successAccountVerified: 'Your account has been verified.',
+    // Home — header & search
+    homeGreeting: 'Hello',
+    homeSubtitle: 'Ready to grow your business today?',
+    homeSearchHint: 'Search courses…',
+    homeSearchClear: 'Clear search',
+    // Home — sections
+    homeWelcomeVideoSection: 'Start here',
+    homeCoursesSection: 'Courses',
+    homeContinueLearning: 'Continue learning',
+    // Badges & course meta
+    badgeFree: 'FREE',
+    badgePremium: 'PREMIUM',
+    badgeLocked: 'Locked',
+    courseLessonsCount: '{n} lessons',
+    courseProgressComplete: '{p}% complete',
+    courseRatingReviews: '({n} reviews)',
+    // Filters
+    filterAll: 'All',
+    filterFree: 'Free',
+    filterPremium: 'Premium',
+    filterInProgress: 'In progress',
+    // Bottom navigation
+    navHome: 'Home',
+    navMyCourses: 'My Courses',
+    navTools: 'Tools',
+    navProfile: 'Profile',
+    // Empty / error / misc states
+    homeEmptyTitle: 'No courses found',
+    homeEmptySubtitle: 'Try a different search term or filter.',
+    homeErrorTitle: 'We could not load your courses.',
+    homeRetry: 'Try again',
+    homeComingSoon: 'Coming soon',
+    homeComingSoonSubtitle: 'This section is being built and will unlock shortly.',
   );
 
   static const AppStrings fr = AppStrings._(
@@ -305,6 +419,39 @@ class AppStrings {
     // Success
     successSignedIn: 'Connexion réussie.',
     successAccountVerified: 'Votre compte a été vérifié.',
+    // Home — header & search
+    homeGreeting: 'Bonjour',
+    homeSubtitle: 'Prêt à développer votre activité aujourd\'hui ?',
+    homeSearchHint: 'Rechercher des cours…',
+    homeSearchClear: 'Effacer la recherche',
+    // Home — sections
+    homeWelcomeVideoSection: 'Commencez ici',
+    homeCoursesSection: 'Cours',
+    homeContinueLearning: 'Continuer l\'apprentissage',
+    // Badges & course meta
+    badgeFree: 'GRATUIT',
+    badgePremium: 'PREMIUM',
+    badgeLocked: 'Verrouillé',
+    courseLessonsCount: '{n} leçons',
+    courseProgressComplete: '{p}% terminé',
+    courseRatingReviews: '({n} avis)',
+    // Filters
+    filterAll: 'Tous',
+    filterFree: 'Gratuits',
+    filterPremium: 'Premium',
+    filterInProgress: 'En cours',
+    // Bottom navigation
+    navHome: 'Accueil',
+    navMyCourses: 'Mes cours',
+    navTools: 'Outils',
+    navProfile: 'Profil',
+    // Empty / error / misc states
+    homeEmptyTitle: 'Aucun cours trouvé',
+    homeEmptySubtitle: 'Essayez un autre terme de recherche ou un autre filtre.',
+    homeErrorTitle: 'Impossible de charger vos cours.',
+    homeRetry: 'Réessayer',
+    homeComingSoon: 'Bientôt disponible',
+    homeComingSoonSubtitle: 'Cette section est en cours de construction.',
   );
 
   /// Returns the [AppStrings] set matching [languageCode], defaulting to

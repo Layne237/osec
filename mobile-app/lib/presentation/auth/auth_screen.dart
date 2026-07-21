@@ -8,6 +8,7 @@ import '../../core/constants/app_strings.dart';
 import '../../core/themes/app_colors.dart';
 import '../../core/utils/validators.dart';
 import '../../data/repositories/auth_repository.dart';
+import '../home/home_screen.dart';
 import 'providers/auth_provider.dart';
 import 'widgets/auth_toggle.dart';
 import 'widgets/otp_verification.dart';
@@ -74,6 +75,16 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
+  /// Replaces the auth screen with the home experience once a session exists.
+  ///
+  /// Remplace l'écran d'authentification par l'accueil une fois la session
+  /// établie — `pushReplacement` empêche tout retour arrière vers le login.
+  void _goToHome() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(builder: (_) => const HomeScreen()),
+    );
+  }
+
   void _showSnack(String message, {bool success = false}) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
@@ -102,7 +113,10 @@ class _AuthScreenState extends State<AuthScreen> {
         phoneNumber: phone,
         password: _passwordController.text,
       );
-      if (ok && mounted) _showSnack(strings.successSignedIn, success: true);
+      if (ok && mounted) {
+        _showSnack(strings.successSignedIn, success: true);
+        _goToHome();
+      }
     } else {
       // On success the provider transitions to awaitingOtp and the UI swaps to
       // the OTP view — no snackbar needed here.
@@ -120,7 +134,10 @@ class _AuthScreenState extends State<AuthScreen> {
     final provider = context.read<AuthProvider>();
     final strings = AppStrings.of(_localeCode);
     final ok = await provider.verifyOtp(code);
-    if (ok && mounted) _showSnack(strings.successAccountVerified, success: true);
+    if (ok && mounted) {
+      _showSnack(strings.successAccountVerified, success: true);
+      _goToHome();
+    }
   }
 
   Future<void> _resendOtp() async {
@@ -206,11 +223,12 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         );
       case AuthStatus.authenticated:
-        return _AuthenticatedView(
-          key: const ValueKey('authenticated'),
-          strings: strings,
-          userName: provider.user?.fullName ?? '',
-          onLogout: provider.logout,
+        // Transient: the success handler pushes [HomeScreen] on the same frame.
+        // Transitoire : le gestionnaire de succès ouvre [HomeScreen].
+        return const Padding(
+          key: ValueKey('authenticated'),
+          padding: EdgeInsets.symmetric(vertical: 64),
+          child: Center(child: CircularProgressIndicator()),
         );
       case AuthStatus.unauthenticated:
         return _buildCredentialsCard(provider, strings);
@@ -414,9 +432,9 @@ class _Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           AppConstants.appName,
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Montserrat',
             fontSize: 28,
             fontWeight: FontWeight.w800,
@@ -613,68 +631,6 @@ class _ErrorBanner extends StatelessWidget {
             child: const Padding(
               padding: EdgeInsets.only(left: 8),
               child: Icon(Icons.close, color: AppColors.error, size: 18),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-/// Minimal signed-in placeholder shown until the Home experience ships.
-///
-/// Écran d'attente minimal affiché après connexion, en attendant l'accueil.
-class _AuthenticatedView extends StatelessWidget {
-  const _AuthenticatedView({
-    required this.strings,
-    required this.userName,
-    required this.onLogout,
-    super.key,
-  });
-
-  final AppStrings strings;
-  final String userName;
-  final Future<void> Function() onLogout;
-
-  @override
-  Widget build(BuildContext context) {
-    return _GlassCard(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(Icons.verified_user_outlined,
-              size: 56, color: AppColors.emeraldGreen),
-          const SizedBox(height: 20),
-          Text(
-            strings.successSignedIn,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: 'Montserrat',
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-              color: AppColors.primaryText,
-            ),
-          ),
-          if (userName.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(
-              userName,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 15,
-                color: AppColors.secondaryText,
-              ),
-            ),
-          ],
-          const SizedBox(height: 28),
-          SizedBox(
-            height: 48,
-            width: double.infinity,
-            child: OutlinedButton.icon(
-              onPressed: onLogout,
-              icon: const Icon(Icons.logout, size: 18),
-              label: const Text('Logout'),
             ),
           ),
         ],
