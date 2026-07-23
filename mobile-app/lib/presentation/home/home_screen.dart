@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../core/constants/app_strings.dart';
 import '../../core/themes/app_colors.dart';
 import '../auth/providers/auth_provider.dart';
+import '../course_detail/course_detail_screen.dart';
 import '../shared/widgets/shimmer_box.dart';
 import 'providers/home_provider.dart';
 import 'widgets/bottom_nav_bar.dart';
@@ -99,6 +100,21 @@ class _CatalogTab extends StatelessWidget {
     if (width >= 1200) return 4;
     if (width >= 900) return 3;
     return 2;
+  }
+
+  /// Opens the course detail screen, then refreshes the catalog on return so a
+  /// purchase made downstream is reflected here.
+  ///
+  /// Ouvre le détail du cours puis rafraîchit le catalogue au retour pour
+  /// refléter un achat effectué en aval.
+  Future<void> _openCourse(BuildContext context, String courseId) async {
+    final home = context.read<HomeProvider>();
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(
+        builder: (_) => CourseDetailScreen(courseId: courseId),
+      ),
+    );
+    await home.refresh();
   }
 
   @override
@@ -222,7 +238,7 @@ class _CatalogTab extends StatelessWidget {
             premiumBadgeLabel: strings.badgePremium,
             lessonsCountTemplate: strings.courseLessonsCount,
             progressTemplate: strings.courseProgressComplete,
-            onTap: onComingSoon,
+            onTap: () => _openCourse(context, course.id),
           );
         },
       ),

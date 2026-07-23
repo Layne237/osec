@@ -106,6 +106,58 @@ class AppStrings {
     required this.homeRetry,
     required this.homeComingSoon,
     required this.homeComingSoonSubtitle,
+    // Common
+    required this.commonCancel,
+    // Course detail
+    required this.cdAboutTitle,
+    required this.cdContentTitle,
+    required this.cdAllLevels,
+    required this.cdLevelLabel,
+    required this.cdBuyNow,
+    required this.cdStartLearning,
+    required this.cdEnrolledBadge,
+    // Locked content dialog
+    required this.lockedTitle,
+    required this.lockedMessage,
+    required this.lockedUnlockNow,
+    // Checkout
+    required this.checkoutTitle,
+    required this.checkoutOrderSummary,
+    required this.checkoutPaymentMethodTitle,
+    required this.checkoutMtnName,
+    required this.checkoutMtnSubtitle,
+    required this.checkoutOrangeName,
+    required this.checkoutOrangeSubtitle,
+    required this.checkoutPhoneLabel,
+    required this.checkoutConfirm,
+    required this.checkoutTotalLabel,
+    required this.checkoutSslSecure,
+    required this.checkoutProcessing,
+    // Payment result
+    required this.paySuccessTitle,
+    required this.paySuccessSubtitle,
+    required this.payStartLearning,
+    required this.payViewMyCourses,
+    required this.payFailedTitle,
+    required this.payFailedSubtitle,
+    required this.payRetry,
+    // Receipt
+    required this.receiptTitle,
+    required this.receiptTransactionId,
+    required this.receiptDateTime,
+    required this.receiptCourse,
+    required this.receiptAmount,
+    required this.receiptMethod,
+    required this.receiptStatus,
+    // Transaction status
+    required this.statusPending,
+    required this.statusCompleted,
+    required this.statusFailed,
+    // Payment errors
+    required this.payErrorNetwork,
+    required this.payErrorDeclined,
+    required this.payErrorTimeout,
+    required this.payErrorUnknown,
   });
 
   // Onboarding
@@ -236,6 +288,68 @@ class AppStrings {
   final String homeComingSoon;
   final String homeComingSoonSubtitle;
 
+  // Common
+  final String commonCancel;
+
+  // Course detail
+  final String cdAboutTitle;
+  final String cdContentTitle;
+  final String cdAllLevels;
+  final String cdLevelLabel;
+
+  /// "Buy now" CTA containing a `{price}` placeholder. / CTA d'achat avec `{price}`.
+  final String cdBuyNow;
+  final String cdStartLearning;
+  final String cdEnrolledBadge;
+
+  // Locked content dialog
+  final String lockedTitle;
+  final String lockedMessage;
+  final String lockedUnlockNow;
+
+  // Checkout
+  final String checkoutTitle;
+  final String checkoutOrderSummary;
+  final String checkoutPaymentMethodTitle;
+  final String checkoutMtnName;
+  final String checkoutMtnSubtitle;
+  final String checkoutOrangeName;
+  final String checkoutOrangeSubtitle;
+  final String checkoutPhoneLabel;
+  final String checkoutConfirm;
+  final String checkoutTotalLabel;
+  final String checkoutSslSecure;
+  final String checkoutProcessing;
+
+  // Payment result
+  final String paySuccessTitle;
+  final String paySuccessSubtitle;
+  final String payStartLearning;
+  final String payViewMyCourses;
+  final String payFailedTitle;
+  final String payFailedSubtitle;
+  final String payRetry;
+
+  // Receipt
+  final String receiptTitle;
+  final String receiptTransactionId;
+  final String receiptDateTime;
+  final String receiptCourse;
+  final String receiptAmount;
+  final String receiptMethod;
+  final String receiptStatus;
+
+  // Transaction status
+  final String statusPending;
+  final String statusCompleted;
+  final String statusFailed;
+
+  // Payment errors
+  final String payErrorNetwork;
+  final String payErrorDeclined;
+  final String payErrorTimeout;
+  final String payErrorUnknown;
+
   static const AppStrings en = AppStrings._(
     // Onboarding
     onboardingSkip: 'Skip',
@@ -342,6 +456,59 @@ class AppStrings {
     homeRetry: 'Try again',
     homeComingSoon: 'Coming soon',
     homeComingSoonSubtitle: 'This section is being built and will unlock shortly.',
+    // Common
+    commonCancel: 'Cancel',
+    // Course detail
+    cdAboutTitle: 'About this course',
+    cdContentTitle: 'Course content',
+    cdAllLevels: 'All levels',
+    cdLevelLabel: 'Level',
+    cdBuyNow: 'Buy now — {price}',
+    cdStartLearning: 'Start learning',
+    cdEnrolledBadge: 'Enrolled',
+    // Locked content dialog
+    lockedTitle: '🔒 Purchase to unlock',
+    lockedMessage:
+        'Buy this course to unlock this lesson and every module inside it.',
+    lockedUnlockNow: 'Unlock now',
+    // Checkout
+    checkoutTitle: 'Checkout',
+    checkoutOrderSummary: 'Order summary',
+    checkoutPaymentMethodTitle: 'Payment method',
+    checkoutMtnName: 'MTN Mobile Money',
+    checkoutMtnSubtitle: 'Pay with your MTN MoMo account',
+    checkoutOrangeName: 'Orange Money',
+    checkoutOrangeSubtitle: 'Pay with your Orange Money account',
+    checkoutPhoneLabel: 'Payment phone number',
+    checkoutConfirm: 'Confirm payment',
+    checkoutTotalLabel: 'Total',
+    checkoutSslSecure: 'SSL secure connection',
+    checkoutProcessing: 'Processing your payment…',
+    // Payment result
+    paySuccessTitle: 'Payment successful!',
+    paySuccessSubtitle: 'Your course is now unlocked. Enjoy your learning.',
+    payStartLearning: 'Start learning',
+    payViewMyCourses: 'View my courses',
+    payFailedTitle: 'Payment failed',
+    payFailedSubtitle: 'Your payment could not be completed. No money was taken.',
+    payRetry: 'Try again',
+    // Receipt
+    receiptTitle: 'Receipt',
+    receiptTransactionId: 'Transaction ID',
+    receiptDateTime: 'Date & time',
+    receiptCourse: 'Course',
+    receiptAmount: 'Amount',
+    receiptMethod: 'Method',
+    receiptStatus: 'Status',
+    // Transaction status
+    statusPending: 'Pending',
+    statusCompleted: 'Completed',
+    statusFailed: 'Failed',
+    // Payment errors
+    payErrorNetwork: 'No connection. Check your network and try again.',
+    payErrorDeclined: 'The payment was declined. Please try another number.',
+    payErrorTimeout: 'The payment timed out. Please try again.',
+    payErrorUnknown: 'The payment could not be completed. Please try again.',
   );
 
   static const AppStrings fr = AppStrings._(
@@ -452,6 +619,59 @@ class AppStrings {
     homeRetry: 'Réessayer',
     homeComingSoon: 'Bientôt disponible',
     homeComingSoonSubtitle: 'Cette section est en cours de construction.',
+    // Common
+    commonCancel: 'Annuler',
+    // Course detail
+    cdAboutTitle: 'À propos de ce cours',
+    cdContentTitle: 'Contenu du cours',
+    cdAllLevels: 'Tous niveaux',
+    cdLevelLabel: 'Niveau',
+    cdBuyNow: 'Acheter — {price}',
+    cdStartLearning: 'Commencer',
+    cdEnrolledBadge: 'Inscrit',
+    // Locked content dialog
+    lockedTitle: '🔒 Achetez pour débloquer',
+    lockedMessage:
+        'Achetez ce cours pour débloquer cette leçon et tous ses modules.',
+    lockedUnlockNow: 'Débloquer maintenant',
+    // Checkout
+    checkoutTitle: 'Paiement',
+    checkoutOrderSummary: 'Récapitulatif',
+    checkoutPaymentMethodTitle: 'Moyen de paiement',
+    checkoutMtnName: 'MTN Mobile Money',
+    checkoutMtnSubtitle: 'Payez avec votre compte MTN MoMo',
+    checkoutOrangeName: 'Orange Money',
+    checkoutOrangeSubtitle: 'Payez avec votre compte Orange Money',
+    checkoutPhoneLabel: 'Numéro de téléphone de paiement',
+    checkoutConfirm: 'Confirmer le paiement',
+    checkoutTotalLabel: 'Total',
+    checkoutSslSecure: 'Connexion sécurisée SSL',
+    checkoutProcessing: 'Traitement de votre paiement…',
+    // Payment result
+    paySuccessTitle: 'Paiement réussi !',
+    paySuccessSubtitle: 'Votre cours est débloqué. Bon apprentissage.',
+    payStartLearning: 'Commencer',
+    payViewMyCourses: 'Voir mes cours',
+    payFailedTitle: 'Échec du paiement',
+    payFailedSubtitle: "Votre paiement n'a pas pu aboutir. Aucun montant n'a été prélevé.",
+    payRetry: 'Réessayer',
+    // Receipt
+    receiptTitle: 'Reçu',
+    receiptTransactionId: 'ID de transaction',
+    receiptDateTime: 'Date et heure',
+    receiptCourse: 'Cours',
+    receiptAmount: 'Montant',
+    receiptMethod: 'Moyen',
+    receiptStatus: 'Statut',
+    // Transaction status
+    statusPending: 'En attente',
+    statusCompleted: 'Terminé',
+    statusFailed: 'Échoué',
+    // Payment errors
+    payErrorNetwork: 'Pas de connexion. Vérifiez votre réseau et réessayez.',
+    payErrorDeclined: 'Le paiement a été refusé. Essayez un autre numéro.',
+    payErrorTimeout: 'Le délai de paiement a expiré. Veuillez réessayer.',
+    payErrorUnknown: "Le paiement n'a pas pu aboutir. Veuillez réessayer.",
   );
 
   /// Returns the [AppStrings] set matching [languageCode], defaulting to

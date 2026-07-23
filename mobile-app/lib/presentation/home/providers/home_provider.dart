@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-import '../../../data/mock_data/mock_courses.dart';
 import '../../../data/models/course_model.dart';
+import '../../../data/repositories/course_repository.dart';
 
 /// Catalog filters offered above the course grid.
 ///
@@ -23,7 +23,8 @@ enum HomeStatus { initial, loading, ready, error }
 /// Actuellement alimenté par [MockCourses] ; le passage à une vraie API ne
 /// nécessite que de modifier [_fetchCourses].
 class HomeProvider extends ChangeNotifier {
-  HomeProvider({bool autoLoad = true}) {
+  HomeProvider({CourseRepository? repository, bool autoLoad = true})
+      : _repository = repository ?? CourseRepository() {
     if (autoLoad) {
       // Deferred so listeners attached during the first build still receive the
       // ready notification. / Différé pour que les écouteurs reçoivent l'état.
@@ -31,8 +32,7 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
-  /// Simulated network latency for the mock catalog. / Latence simulée.
-  static const Duration _mockLatency = Duration(milliseconds: 1200);
+  final CourseRepository _repository;
 
   HomeStatus _status = HomeStatus.initial;
   List<CourseModel> _courses = const [];
@@ -113,9 +113,9 @@ class HomeProvider extends ChangeNotifier {
     _error = null;
     notifyListeners();
     try {
-      final result = await _fetchCourses();
+      final result = await _repository.getCourses();
       _courses = result;
-      _welcomeVideo = MockCourses.welcomeVideo;
+      _welcomeVideo = await _repository.getWelcomeVideo();
       _status = HomeStatus.ready;
     } catch (e, stack) {
       debugPrint('Failed to load home catalog: $e\n$stack');
@@ -163,14 +163,5 @@ class HomeProvider extends ChangeNotifier {
     updated[index] = updated[index].copyWith(progress: clamped);
     _courses = updated;
     notifyListeners();
-  }
-
-  // --- Data source / Source de données ------------------------------------
-
-  /// Fetches the catalog. Replace with a repository call once the courses API
-  /// is available. / Remplacer par un appel au dépôt une fois l'API disponible.
-  Future<List<CourseModel>> _fetchCourses() async {
-    await Future<void>.delayed(_mockLatency);
-    return MockCourses.catalog;
   }
 }
