@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OSEC | Business Tools</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#2e3039",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#11131b",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-bright": "#373942",
+                    "on-surface": "#e1e2ed",
+                    "on-tertiary-fixed": "#261a00",
+                    "primary-container": "#2563eb",
+                    "secondary": "#4edea3",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "secondary-fixed": "#6ffbbe",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#b4c5ff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-tint": "#b4c5ff",
+                    "on-secondary": "#003824",
+                    "on-primary-container": "#eeefff",
+                    "inverse-primary": "#0053db",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary-container": "#ffeed3",
+                    "surface-dim": "#11131b",
+                    "surface-container-low": "#191b23",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#8b6700",
+                    "surface-container-high": "#282a32",
+                    "on-background": "#e1e2ed",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#32343d",
+                    "outline": "#8d90a0",
+                    "tertiary": "#f9bd22",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary-container": "#00311f",
+                    "secondary-container": "#00a572",
+                    "on-surface-variant": "#c3c6d7",
+                    "outline-variant": "#434655",
+                    "surface": "#11131b",
+                    "on-primary": "#002a78",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-tertiary": "#402d00",
+                    "inverse-surface": "#e1e2ed",
+                    "surface-container-lowest": "#0c0e16",
+                    "surface-container-highest": "#32343d",
+                    "surface-container": "#1d1f27",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "container-margin": "24px",
+                    "stack-md": "16px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Montserrat"],
+                    "label-caps": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "headline-sm": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e1e2ed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .gold-accent-hover:hover {
+            border-color: #f9bd22;
+            box-shadow: 0 0 20px rgba(249, 189, 34, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-glow {
+            box-shadow: 0 -4px 12px rgba(180, 197, 255, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-2xl shadow-black/50 flex items-center justify-between px-container-margin h-16">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary text-2xl active:scale-95 duration-200 cursor-pointer">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tighter">OSEC</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20 active:scale-95 duration-200 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A professional, high-end close-up portrait of a successful young entrepreneur with a focused expression. The lighting is dramatic and moody, utilizing deep shadows and soft rim light to create a premium cinematic feel. The background is a blurred, dark office setting with subtle obsidian and gold highlights, maintaining the intellectual luxury aesthetic of the OSEC platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrmLc7Eg3N3k1XHPQ_hQqnUJv_L8m9EgvT-OT-KCnFh83Ze2puUiLQ4SZpEcnbwIqDJIG4NdiCtfCCEocGhfxY0QoVwpld_OVTMDgENdD0GFBGAaWUqOxFcdrBb1x7AoctN9hHW6frlNEjgbo4dPjHHBTgnoZQAqfO2Xmusg7J3RFqnQen4TCTEn5JuOdAIKq5jEVyDjZiqi4vFQY4b2jLZaMH9h-SX1HAaqbfPXKDVMlMBpdLDOi1TUNr-fGBZQsTPQionW1WkDc"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 px-container-margin max-w-7xl mx-auto">
+<!-- Welcome Header -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Executive Workspace</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Precision instruments for professional growth.</p>
+</section>
+<!-- Bento Grid Tools -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Profit Calculator (Large Feature Card) -->
+<div class="md:col-span-8 glass-card rounded-xl p-stack-lg gold-accent-hover transition-all duration-300 flex flex-col justify-between group h-64 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-tertiary/10 transition-colors"></div>
+<div>
+<div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center mb-stack-md border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">payments</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Profit Calculator</h3>
+<p class="font-body-md text-body-md text-outline max-w-sm mt-2">Analyze margins and project scalability with real-time financial modeling.</p>
+</div>
+<div class="flex items-center text-tertiary font-label-caps text-label-caps gap-2 mt-4 cursor-pointer">
+                    LAUNCH TOOL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Notes (Compact Card) -->
+<div class="md:col-span-4 glass-card rounded-xl p-stack-lg gold-accent-hover transition-all duration-300 flex flex-col justify-between group h-64">
+<div>
+<div class="w-12 h-12 bg-surface-variant rounded-lg flex items-center justify-center mb-stack-md border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">edit_note</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Notes</h3>
+<p class="font-body-md text-body-md text-outline mt-2">Capture strategic insights and draft business plans instantly.</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-4">
+<div class="bg-primary w-2/3 h-full"></div>
+</div>
+</div>
+<!-- AI Business Assistant (Wide Card) -->
+<div class="md:col-span-12 glass-card rounded-xl p-stack-lg gold-accent-hover transition-all duration-300 flex flex-col md:flex-row items-center gap-stack-lg group overflow-hidden relative">
+<div class="flex-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container/30 border border-tertiary/30 mb-stack-md">
+<span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-caps text-label-caps text-tertiary">PREMIUM AI</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI Business Assistant</h3>
+<p class="font-body-md text-body-md text-outline mt-2 mb-stack-md">Leverage advanced neural networks to automate research, generate copy, and validate business hypotheses in seconds.</p>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-label-caps text-label-caps flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+                        COMMENCE DIALOGUE <span class="material-symbols-outlined text-lg">smart_toy</span>
+</button>
+</div>
+<div class="w-full md:w-1/3 aspect-video md:aspect-square relative rounded-lg overflow-hidden border border-white/5 shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A futuristic, abstract representation of artificial intelligence as a pulsing, bioluminescent core of golden light filaments and royal blue energy waves. The aesthetic is clean, minimalist, and high-performance, fitting for a premium business suite. Deep obsidian background with subtle data-stream micro-patterns visible in the periphery, creating a sense of infinite processing power and intellectual luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQT12LOAIx_JEMErkWNx5mZ2k82xIv1rhuQtnRtfIsz5uKW9KtOKO49cUPuXE5s9LHD7gc_0ukUBmTDiZ9eFH4dOp33HoECxCg0N_TQ5LBHj8Ja4_bioYwEDd3eTMZ3xjLa1iyFL5QdMJHIFZ9dCiiiZJLFEPHF_cBcL9mrjWO1fBee6y1JqA6Eh45AwuNmLqa6JVJtAOyTJMS6MCGTe1e0-tlG0gj3l-TO531tW32SjfqjLYfL28lQyRTaA91cCE8q-f0xUDA9tc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+</div>
+<!-- Currency Converter (Standard Card) -->
+<div class="md:col-span-6 glass-card rounded-xl p-stack-lg gold-accent-hover transition-all duration-300 group">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 bg-secondary-container/20 rounded-lg flex items-center justify-center border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-3xl">currency_exchange</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">GLOBAL TRADE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Currency Converter</h3>
+<p class="font-body-md text-body-md text-outline mt-2 mb-stack-md">Monitor real-time exchange rates and calculate international transaction costs across 140+ fiat and digital currencies.</p>
+<div class="grid grid-cols-2 gap-stack-sm p-3 bg-surface-container-lowest rounded-lg border border-white/5">
+<div class="text-on-surface-variant font-label-caps text-[10px]">USD/EUR</div>
+<div class="text-secondary font-label-caps text-[10px] text-right">+0.42%</div>
+</div>
+</div>
+<!-- Marketing Tools (Standard Card) -->
+<div class="md:col-span-6 glass-card rounded-xl p-stack-lg gold-accent-hover transition-all duration-300 group">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">campaign</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline">GROWTH OPS</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Marketing Tools</h3>
+<p class="font-body-md text-body-md text-outline mt-2 mb-stack-md">Access frameworks for viral loops, conversion rate optimization, and high-performance ad copy structures.</p>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed-dim/20 border border-black flex items-center justify-center"><span class="material-symbols-outlined text-xs text-tertiary">ads_click</span></div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim/20 border border-black flex items-center justify-center"><span class="material-symbols-outlined text-xs text-primary">hub</span></div>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed-dim/20 border border-black flex items-center justify-center"><span class="material-symbols-outlined text-xs text-secondary">trending_up</span></div>
+</div>
+</div>
+</div>
+<!-- Secondary CTA Section -->
+<section class="mt-section-gap mb-section-gap text-center max-w-2xl mx-auto">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-stack-sm">Missing a specific instrument?</h4>
+<p class="font-body-md text-body-md text-outline mb-stack-lg">Our suite is constantly expanding with elite resources for premium members.</p>
+<button class="bg-surface-container-highest text-on-surface-variant px-8 py-4 rounded-xl font-label-caps text-label-caps border border-outline-variant hover:border-tertiary transition-all">
+                REQUEST CUSTOM TOOL
+            </button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-surface-container-lowest/80 backdrop-blur-lg flex justify-around items-center px-4 pb-4 z-50 rounded-t-xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-300 hover:text-primary-fixed-dim active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-300 hover:text-primary-fixed-dim active:scale-90" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary transition-all duration-300 hover:text-primary-fixed-dim active:scale-90 relative" href="#">
+<div class="absolute -top-4 w-12 h-1 bg-primary rounded-full active-nav-glow"></div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps">Tools</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-300 hover:text-primary-fixed-dim active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for tool cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    icon.style.transform = 'scale(1.1) translateY(-4px)';
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if (icon) {
+                    icon.style.transform = 'scale(1) translateY(0)';
+                }
+            });
+        });
+
+        // Simple parallax for the background glow
+        window.addEventListener('mousemove', (e) => {
+            const glows = document.querySelectorAll('.blur-3xl');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            glows.forEach(glow => {
+                const speed = 20;
+                glow.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body></html>

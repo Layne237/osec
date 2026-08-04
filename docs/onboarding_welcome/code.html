@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OSEC | Premium E-commerce Learning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#2e3039",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#11131b",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-bright": "#373942",
+                    "on-surface": "#e1e2ed",
+                    "on-tertiary-fixed": "#261a00",
+                    "primary-container": "#2563eb",
+                    "secondary": "#4edea3",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "secondary-fixed": "#6ffbbe",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary": "#b4c5ff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-tint": "#b4c5ff",
+                    "on-secondary": "#003824",
+                    "on-primary-container": "#eeefff",
+                    "inverse-primary": "#0053db",
+                    "on-error": "#690005",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary-container": "#ffeed3",
+                    "surface-dim": "#11131b",
+                    "surface-container-low": "#191b23",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#8b6700",
+                    "surface-container-high": "#282a32",
+                    "on-background": "#e1e2ed",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#32343d",
+                    "outline": "#8d90a0",
+                    "tertiary": "#f9bd22",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary-container": "#00311f",
+                    "secondary-container": "#00a572",
+                    "on-surface-variant": "#c3c6d7",
+                    "outline-variant": "#434655",
+                    "surface": "#11131b",
+                    "on-primary": "#002a78",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-tertiary": "#402d00",
+                    "inverse-surface": "#e1e2ed",
+                    "surface-container-lowest": "#0c0e16",
+                    "surface-container-highest": "#32343d",
+                    "surface-container": "#1d1f27",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#dbe1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "24px",
+                    "container-margin": "24px",
+                    "stack-md": "16px",
+                    "section-gap": "48px",
+                    "gutter": "16px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Montserrat"],
+                    "label-caps": ["Inter"],
+                    "display-lg-mobile": ["Montserrat"],
+                    "headline-sm": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e1e2ed;
+            overflow: hidden;
+        }
+        .glass-panel {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(249, 189, 34, 0.1) 0%, transparent 50%);
+        }
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+        }
+        @keyframes slow-pan {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.05) translate(-1%, -1%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+        .animate-slow-pan {
+            animation: slow-pan 20s infinite ease-in-out;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<!-- Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden">
+<div class="absolute inset-0 bg-black"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="absolute inset-0 opacity-40 animate-slow-pan" data-alt="A cinematic, high-end close-up of a premium minimalist workspace with a sleek laptop, elegant gold desk accessories, and soft ambient lighting from a window. The color palette is dominated by deep obsidian blacks and subtle royal blue highlights, creating an atmosphere of professional intellectual luxury. The focus is sharp on textures like brushed metal and matte surfaces." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBmQnyOeGff7nXCKVR3SYuzNZpsRS9rCVp8hv1ShCHWrpjk-Ho9CW_DDzDLKsGZDu8bItUsWvG_9Aau-r5YJimJc4tQz0_L8R4n-SI_sJR1hh_PN6DflkM64W3qGU78OP1bdAdfChkZR6STsEME5Pu2JC7aHBRDGqMm808Nt3aMN_iwBj5njN1qC5d0nnY3dxL7Boriw2vrNXNqnGehex5y1uumWyQZ4fEDUhtsi3mGMhcEufHQc6BDYk0U3pVmRYh92xBsaR3TlU')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+</div>
+<!-- Layout Container -->
+<main class="relative z-10 min-h-screen flex flex-col justify-between px-container-margin py-stack-lg max-w-screen-xl mx-auto">
+<!-- Top Section: Logo & Skip -->
+<header class="flex items-center justify-between w-full mt-4">
+<div class="flex items-center gap-stack-sm">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tighter uppercase font-extrabold md:text-display-lg md:font-display-lg">
+                    OSEC
+                </span>
+</div>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-widest px-4 py-2 rounded-full glass-panel">
+                Skip
+            </button>
+</header>
+<!-- Center Content: Branding & Value Prop -->
+<div class="flex flex-col items-center text-center max-w-2xl mx-auto space-y-stack-lg">
+<div class="relative inline-block">
+<!-- Abstract Luxury Shape Background -->
+<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
+<div class="relative glass-panel rounded-3xl p-8 border-primary/20">
+<span class="material-symbols-outlined text-[64px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">
+                        school
+                    </span>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface md:text-display-lg md:font-display-lg leading-tight">
+                    Learn. Build. <span class="text-tertiary-fixed-dim">Earn.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mx-auto leading-relaxed">
+                    Learn E-commerce from professionals. Master the strategies that build global brands.
+                </p>
+</div>
+</div>
+<!-- Bottom Section: Actions -->
+<footer class="flex flex-col items-center gap-stack-md mb-8 w-full">
+<button class="group relative w-full md:w-80 h-16 bg-primary-container text-on-primary-container rounded-xl overflow-hidden btn-glow transition-all active:scale-95">
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="relative font-headline-sm text-headline-sm flex items-center justify-center gap-2">
+                    Get Started
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</button>
+<div class="flex items-center gap-4 py-4">
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+<p class="font-label-caps text-label-caps text-outline uppercase tracking-tighter">Secure &amp; Verified</p>
+<div class="h-[1px] w-8 bg-outline-variant"></div>
+</div>
+<!-- Trust Badges / Social Proof -->
+<div class="flex gap-stack-lg opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="font-label-caps text-[10px]">ISO CERTIFIED</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="font-label-caps text-[10px]">SSL SECURE</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+<span class="font-label-caps text-[10px]">EXPERT LED</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Subtle Particle Effect -->
+<div class="fixed inset-0 pointer-events-none opacity-30 z-0" id="particles-js"></div>
+<script>
+        // Simple micro-interaction for the button
+        const mainBtn = document.querySelector('button');
+        mainBtn.addEventListener('mousedown', () => {
+            mainBtn.classList.add('scale-95');
+        });
+        document.addEventListener('mouseup', () => {
+            mainBtn.classList.remove('scale-95');
+        });
+
+        // Atmospheric floating light script
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        document.body.appendChild(canvas);
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '1';
+
+        let width, height;
+        const resize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        };
+        window.addEventListener('resize', resize);
+        resize();
+
+        const particles = [];
+        for(let i = 0; i < 20; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 2 + 1,
+                speedX: (Math.random() - 0.5) * 0.2,
+                speedY: (Math.random() - 0.5) * 0.2,
+                opacity: Math.random() * 0.5
+            });
+        }
+
+        const animate = () => {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+                if(p.x < 0 || p.x > width) p.speedX *= -1;
+                if(p.y < 0 || p.y > height) p.speedY *= -1;
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(180, 197, 255, ${p.opacity})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        };
+        animate();
+    </script>
+</body></html>

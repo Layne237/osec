@@ -1,0 +1,33 @@
+# ============================================
+# OSEC Mobile App — CI/CD Dockerfile
+# ============================================
+# This image is used for CI/CD pipelines to
+# build and test the Flutter mobile application.
+
+FROM cirrusci/flutter:3.16.0 AS builder
+
+WORKDIR /app
+
+# Copy pubspec files first for dependency caching
+COPY mobile-app/pubspec.yaml mobile-app/pubspec.lock* ./
+RUN flutter pub get
+
+# Copy source files
+COPY mobile-app/ .
+
+# Run static analysis
+RUN flutter analyze
+
+# Run tests
+RUN flutter test --coverage
+
+# Build release APK
+RUN flutter build apk --release
+
+# Build release app bundle (AAB)
+RUN flutter build appbundle --release
+
+# Output artifacts
+FROM scratch AS artifacts
+COPY --from=builder /app/build/app/outputs/flutter-apk/app-release.apk /
+COPY --from=builder /app/build/app/outputs/bundle/release/app-release.aab /
